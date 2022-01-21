@@ -13,3 +13,5 @@ Missing Features:
 -Make a button to show tasks that are for today
     and a button for this week.
 importing images
+
+fix the popup
