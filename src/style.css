@@ -5,7 +5,7 @@
 html, body {
     margin:0;
     padding:0;
-    height: 100%;
+    height: 100vh;
 }
 
 body > * {
@@ -28,7 +28,7 @@ header {
 #content {
     display:flex;
     flex-direction:row;
-    height:100%;
+    height:75%;
     font-family: 'Dongle', sans-serif;
     font-size:32px;
 
@@ -79,11 +79,11 @@ section {
 }
 
 .task {
-    outline: 3px solid rgb(247, 192, 91);
+
     width:90%;
     display:block;
     border-radius: 15px;
-    background-color: rgb(240, 178, 98);
+    background-color: lightgrey;
     padding:3px;
     transition: 0.3s;
     gap:5px;
@@ -129,7 +129,7 @@ section {
     outline: 2px solid black;
     padding:5px;
     gap:5px;
-    flex:1;
+    flex:0;
 }
 
 .top {
@@ -209,9 +209,7 @@ footer {
 
 
 
-.checkbox { 
-    background-color: black;
-}
+
 
 .checked {
     background-color:black;
@@ -243,6 +241,7 @@ p {
     height:20px;
 }
 
-.checked {
 
+#projectTitle {
+    margin:0
 }

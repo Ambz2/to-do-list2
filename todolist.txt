@@ -7,15 +7,9 @@ To-Do
 
 Missing Features: 
 
--deleting tasks
--deleting project folders
--Better looking addTaskModal
--add a completed button
--fix the important button
--Make the sidebar a different background
--make it so the selected project button is a different color
--re do the to-do design so that it scales bigger and 
-    gets a blurred shadow when hovered over
+
+
+
 -Make a button to show tasks that are for today
     and a button for this week.
--reformat current work to make sense
+importing images

@@ -70,7 +70,7 @@ function addTask(addTaskModal, taskList, event) {
         let currentProject = findProject(addTaskButton.element.dataset.project)
         currentProject.addTaskToArray(data)
         currentProject.saveToLocalStorage()
-        addTaskModal.c.close()
+        addTaskModal.removeSelf()
         manageDOM.populateTaskList(currentProject.taskArray, taskList)
         const completedButtons = document.querySelectorAll('.completed')
         completedButtons.forEach(completedButton => 
@@ -93,6 +93,7 @@ function createFolder(projectData, createFolderInput, createFolderBtn, sidebar) 
     project.checkLocalStorage()
     taskManager.addToProjectData(project.title, projectData)
     taskManager.saveProjectData(projectData)
+    projectList.push(project)
     createFolderInput.value = ''
     createFolderBtn.parentElement.style.display = 'none'
     let projectButton = new manageDOM.navButton(project.title, project.title, project.title)

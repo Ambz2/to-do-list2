@@ -1,3 +1,5 @@
+import Icon from './trash.png'
+
 class Button {
     id = 'button'
     constructor(content, id, dataAttribute = '') {
@@ -26,11 +28,9 @@ class Button {
 class navButton extends Button {
     constructor(content, id, dataAttribute) {
         super(content, id, dataAttribute) 
-        this.img = document.createElement('img')
-        this.img.src = '../images/trash.png'
-        this.img.setAttribute('class', 'trash')
+        this.img = new Image();
+        this.img.src = Icon
         this.element.appendChild(this.img)
-        
     }
 }
 
@@ -106,6 +106,31 @@ class cancelButton extends Button {
     }
 }
 
+class Checkbox extends Button {
+    constructor(content, priority = false) {
+        super(content)
+        
+        this.element.classList.add('button')
+        this.element.style.height = '20px';
+        this.element.style.width = '20px'
+        this.element.style.textDecoration='none'
+        this.value = priority
+
+        this.element.addEventListener('click', this.toggleClass.bind(this))
+    } 
+
+    toggleClass() {
+        if (!this.value) {
+            this.value = true
+            this.element.classList.add('checked')
+        } else {
+            this.value = false
+            this.element.classList.remove('checked')
+        }
+    }
+    
+}
+
 
 class addTaskModal {
     constructor() {
@@ -141,10 +166,11 @@ class addTaskModal {
         this.descriptionInput.setAttribute('class', 'descInput')
 
         this.c = new cancelButton('cancel', 'cancelTask', '#taskModal')
+        this.c.element.addEventListener('click', this.removeSelf.bind(this))
         this.submitButton = new Button('create task', 'createTask')
         this.submitButton.element.setAttribute('type', 'submit')
         
-        this.important = new Checkbox()
+        this.important = new Checkbox("!")
         this.importantLabel = document.createElement('label');
         this.importantLabel.setAttribute('for', 'important')
         this.importantLabel.textContent = 'Important?'
@@ -172,8 +198,11 @@ class addTaskModal {
             return {task: this.taskInput.value, dueDate: this.dueDateInput.value
                 , description: this.descriptionInput.value, priority: this.important.value}
 
-        } 
-        
+        }     
+    }
+
+    removeSelf() {
+        this.element.remove()
     }
 }
 
@@ -231,40 +260,7 @@ class TaskDOM {
     }
 }
 
-class Checkbox {
-    priority = false
-    constructor(priority) {
-        this.element = document.createElement('div')
-        
-        if (priority) {
-            this.element.classList = 'checkbox checked'
-        } else {
-            this.element.classList = 'checkbox'
-        }
-        this.element.style.height = '20px';
-        this.element.style.width = '20px'
 
-        
-        
-        this.value = priority
-        this.element.addEventListener('click', this.onClick.bind(this))
-
-        
-
-    } 
-    onClick() {
-        
-        if (this.value == false) {
-            this.value = true
-            this.element.classList.add('checked')
-        } else {
-            this.value = false
-            this.element.classList.remove('checked')
-        }
-        console.log(this.value)
-    }
-
-}
 
 
 function loadTasks(arr, node) {
