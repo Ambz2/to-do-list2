@@ -1,0 +1,21 @@
+To-Do
+
+1. Remodel the tasks so they look much better  DONE
+2. Add an expand and delete button on the tasks.
+
+
+
+Missing Features: 
+
+-deleting tasks
+-deleting project folders
+-Better looking addTaskModal
+-add a completed button
+-fix the important button
+-Make the sidebar a different background
+-make it so the selected project button is a different color
+-re do the to-do design so that it scales bigger and 
+    gets a blurred shadow when hovered over
+-Make a button to show tasks that are for today
+    and a button for this week.
+-reformat current work to make sense
