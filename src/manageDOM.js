@@ -1,4 +1,8 @@
 import Icon from './trash.png'
+import {format, parseISO, formatDistance} from 'date-fns'
+
+
+
 
 class Button {
     id = 'button'
@@ -201,6 +205,11 @@ class addTaskModal {
         }     
     }
 
+    getDueDateValue() {
+        const parsedDate = parseISO(this.dueDateInput.value)
+        return format(parsedDate, 'dd-MM-yyyy')
+    }
+
     removeSelf() {
         this.element.remove()
     }
@@ -217,8 +226,11 @@ class TaskDOM {
         this.title = document.createElement('p');
         this.title.textContent = title
 
+        this.rawDueDate = dueDate
         this.dueDate = document.createElement('p');
-        this.dueDate.textContent = dueDate
+        this.formattedDueDate = this.getFormattedDate()
+        
+        this.dueDate.textContent = this.formattedDueDate
 
         this.description = document.createElement('div');
         this.description.textContent = description
@@ -257,6 +269,11 @@ class TaskDOM {
         this.element.appendChild(this.top);
         this.element.appendChild(this.description)
         
+    }
+
+    getFormattedDate() {
+        const parsedDate = parseISO(this.rawDueDate)
+        return formatDistance(new Date(), parsedDate, {addSuffix:true})
     }
 }
 

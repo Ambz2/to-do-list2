@@ -12,6 +12,6 @@ Missing Features:
 
 -Make a button to show tasks that are for today
     and a button for this week.
-importing images
-
-fix the popup
+Click on button -> search through project list array for
+all tasks which are today
+create a new array, and populate it on the DOM

@@ -1,7 +1,12 @@
 import './style.css';
 import * as taskManager from './taskManager.js'
 import * as manageDOM from './manageDOM.js'
+import {format, parseISO, formatDistance} from 'date-fns'
 
+const dateString = '1920-12-12'
+const parsedDate = parseISO(dateString)
+console.log(parsedDate)
+console.log(formatDistance(new Date(), parsedDate))
 
 const projectData = taskManager.Project.getProjectData()
 console.log(projectData)
